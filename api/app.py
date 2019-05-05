@@ -3,6 +3,10 @@ import sys
 import os
 
 from flask import Flask, request, jsonify
+#from flasgger import Swagger
+#from flasgger import swag_from
+
+#from swagger.swagger_config import swagger_configuration
 
 abs_path = os.path.dirname(os.path.realpath(__file__))
 abs_path = abs_path.replace("api", "job")
@@ -12,6 +16,7 @@ sys.path.append(abs_path)
 import runner
 
 app = Flask(__name__)
+#swagger = Swagger(app, config=swagger_configuration)
 
 @app.route('/test', methods=['POST', 'GET'])
 def test():

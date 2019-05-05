@@ -1,4 +1,3 @@
-
 MONGO_PORT = os.getenv('MONGO_PORT', 27017)
 MONGO_URL = os.getenv('MONGO_URL', 'localhost')
 
@@ -7,9 +6,8 @@ MONGO_URL = os.getenv('MONGO_URL', 'localhost')
 import json
 from pymongo import MongoClient
 import pymongo
-
-client = MongoClient(MONGO_URL, MONGO_PORT)
-db = client.twitterdb
-col = db.tweets
-raw_col = db.raw_data
-keywords = ['bieber']
+def mongo_connect(self):
+    client = MongoClient(MONGO_URL, MONGO_PORT)
+    db = client.twitterdb
+    col = db.tweets
+    return col
