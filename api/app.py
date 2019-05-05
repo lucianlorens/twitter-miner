@@ -5,7 +5,7 @@ import os
 from flask import Flask, request, jsonify
 
 abs_path = os.path.dirname(os.path.realpath(__file__))
-abs_path = abs_path.replace("app", "job")
+abs_path = abs_path.replace("api", "job")
 
 sys.path.append(abs_path)
 
