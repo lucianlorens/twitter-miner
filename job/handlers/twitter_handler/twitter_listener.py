@@ -47,11 +47,10 @@ class TwitterListener(StreamListener):
             "author_screen_name": screen_name
         }
         
-        #print('🐦', end='')
+        print('Look how many tweets are saved: ', end='')
+        print('🐦', end='')
 
         tweetind = col.insert_one(obj).inserted_id
-
-        tweetind_2 = raw_col.insert_one( json.loads(json.dumps(tweet)) ).inserted_id
         
         #Tweet limitation counter
         self.counter += 1
