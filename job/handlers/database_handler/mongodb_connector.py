@@ -1,11 +1,10 @@
-MONGO_PORT = os.getenv('MONGO_PORT', 27017)
-MONGO_URL = os.getenv('MONGO_URL', 'localhost')
-
-### Setting MongoDB Connection
-
 import json
 from pymongo import MongoClient
 import pymongo
+import os
+
+MONGO_PORT = os.getenv('MONGO_PORT', 27017)
+MONGO_URL = os.getenv('MONGO_URL', 'localhost')
 
 def mongo_connect(self):
     client = MongoClient(MONGO_URL, MONGO_PORT)

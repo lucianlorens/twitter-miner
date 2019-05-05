@@ -18,6 +18,7 @@ class TwitterListener(StreamListener):
         super().__init__()
         self.counter = 0
         self.limit = 100
+        print('Listener Created!')
         
         #using multithread on the object construction
         #threading.Thread(target = count_time,
@@ -55,6 +56,9 @@ class TwitterListener(StreamListener):
         #Tweet limitation counter
         self.counter += 1
         if self.counter < self.limit:
+            print('========')
+            print('Maximum Tweet limitation reached')
+            print('========')
             return True
         else:
             return False

@@ -1,4 +1,3 @@
-
 import json
 import csv
 from bson.json_util import dumps
@@ -11,11 +10,11 @@ def save_from_mongodb_to_tsv(self, collection):
     ))
 
     with open('output.tsv', 'w') as output_file:
-        dw = csv.DictWriter(
+        dict_writer = csv.DictWriter(
             output_file,
             sorted( json_data[0].keys() ),
             delimiter='\t')
         
-        dw.writeheader()
-        dw.writerows(json_values)
+        dict_writer.writeheader()
+        dict_writer.writerows(json_values)
     print('File saved')
