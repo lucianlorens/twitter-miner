@@ -1,7 +1,7 @@
-import handlers.
-import handlers.
-import handlers.
-
+import handlers.database_handler.mongodb_connector as mongodb_connector
+import handlers.file_handler.file_persistence as file_persistence
+import handlers.twitter_handler.twitter_auth as twitter_auth
+import handlers.twitter_handler.twitter_listener as twitter_listener
 
 # OAuth keys
 
@@ -10,6 +10,7 @@ import handlers.
 
 ### OAuth Implementation
 
+keywords = ['bieber']
 
 ### Initializing Stream
 twitter_listener = TwitterListener()

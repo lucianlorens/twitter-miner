@@ -41,3 +41,10 @@ def stop():
     runner_ = runner.SingleRunner()
     data = runner_.stop_job()
     return jsonify(data)
+
+@app.route('/result', methods=['POST', 'GET'])
+def result():
+    print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
+    runner_ = runner.SingleRunner()
+    data = runner_.result()
+    return jsonify(data)

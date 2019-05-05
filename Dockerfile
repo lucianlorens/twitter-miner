@@ -1,4 +1,4 @@
-FROM nickgryg/alpine-pandas:3.6.6
+FROM python:3.7-alpine 
 
 RUN apk add gcc libev-dev musl-dev
 
@@ -13,6 +13,4 @@ RUN pip install -r requirements.txt
 ADD . /code
 
 EXPOSE 5000
-CMD ["python", "app/app_server.py"]
-
-#CMD ['python','twitter_mining.py']
+CMD ["python", "api/app_server.py"]
