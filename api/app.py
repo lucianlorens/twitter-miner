@@ -18,7 +18,6 @@ def test():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     return "TEST OK!"
 
-
 @app.route('/trigger', methods=['POST', 'GET'])
 def trigger():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
@@ -46,5 +45,5 @@ def stop():
 def result():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     runner_ = runner.SingleRunner()
-    data = runner_.result()
+    data = runner_.download()
     return jsonify(data)

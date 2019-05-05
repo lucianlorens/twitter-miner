@@ -48,3 +48,9 @@ class SingleRunner():
                 return False
             else:
                 return True
+
+        def download(self):
+            if (self.check_process_running() is True):
+                return {"status": "Job running", "pid": self.process.pid}
+            else:
+                return {"status": "No job running", "pid": None}
