@@ -1,4 +1,5 @@
-tweepy=3.7.0
-pymongo=3.8.0
-python-dotenv=0.10.1
-
+tweepy==3.7.0
+pymongo==3.8.0
+python-dotenv==0.10.1
+bjoern==2.2.3
+flask==1.0.1
