@@ -1,0 +1,9 @@
+tags:
+  - Status
+description: "Application Status"
+responses:
+  200:
+    description: "Ok"
+  500:
+    description: "Internal Error"
+

@@ -6,16 +6,17 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - .:/api
+      - .:/code
     environment:
       HOST: "${HOST}" 
       PORT: "${PORT}" 
-      CONSUMER_KEY: "${}"
-      CONSUMER_SECRET: "${}"
-      ACCESS_TOKEN: "${}"
-      ACCESS_TOKEN_SECRET: "${}"
+      CONSUMER_KEY: "${CONSUMER_KEY}"
+      CONSUMER_SECRET: "${CONSUMER_SECRET}"
+      ACCESS_TOKEN: "${ACCESS_TOKEN}"
+      ACCESS_TOKEN_SECRET: "${ACCESS_TOKEN_SECRET}"
       FLASK_ENV: "${FLASK_ENV}" 
-      MONGO_URL: "${MONGO_URL}"
+      MONGO_HOST: "${MONGO_HOST}"
+      MONGO_PORT: "${MONGO_PORT}"
     depends_on:
       - mongo
   mongo:
