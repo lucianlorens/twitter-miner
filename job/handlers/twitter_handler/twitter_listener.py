@@ -21,7 +21,7 @@ class TwitterListener(StreamListener):
         super().__init__()
         self.counter = 0
         self.limit = 100
-                
+
         self.mongo_collection = collection
 
         print('Listener Created!')
@@ -54,7 +54,6 @@ class TwitterListener(StreamListener):
             "author_screen_name": screen_name
         }
         
-        print('Look how many tweets are saved: ', end='')
         print('🐦', end='')
 
         tweetind = self.mongo_collection.insert_one(obj).inserted_id
@@ -62,11 +61,11 @@ class TwitterListener(StreamListener):
         #Tweet limitation counter
         self.counter += 1
         if self.counter < self.limit:
+            return True
+        else:
             print('========')
             print('Maximum Tweet limitation reached')
             print('========')
-            return True
-        else:
             return False
         
         return True
