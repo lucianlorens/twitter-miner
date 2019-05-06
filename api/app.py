@@ -46,11 +46,11 @@ def stop():
     data = runner_.stop_job()
     return jsonify(data)
 
-@app.route('/download', methods=['GET'])
+@app.route('/result', methods=['GET'])
 def result():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     runner_ = runner.SingleRunner()
     tsv_file = runner_.download()
-    print("/code/"+tsv_file)
+    print("/../"+tsv_file)
     app.logger.info(tsv_file)
-    return send_file(tsv_file)
+    return send_file("../"+tsv_file, attachment_filename='output.tsv')
