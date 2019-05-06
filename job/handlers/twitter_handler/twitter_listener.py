@@ -4,6 +4,7 @@ import threading
 import sys
 import os
 import time
+import json
 from flask import Flask
 
 app = Flask(__name__)
@@ -18,7 +19,7 @@ def count_time( threadName, delay, limit):
     #os._exit(0)
 
 
-class TwitterListener(StreamListener):
+class TwitterListener(StreamListener, collection):
     def __init__(self):
         super().__init__()
         self.counter = 0
@@ -53,17 +54,17 @@ class TwitterListener(StreamListener):
             "author_screen_name": screen_name
         }
         
-        app.logger.info('Look how many tweets are saved: ', end='')
-        app.logger.info('🐦', end='')
+        print('Look how many tweets are saved: ', end='')
+        print('🐦', end='')
 
-        tweetind = col.insert_one(obj).inserted_id
+        tweetind = collection.insert_one(obj).inserted_id
         
         #Tweet limitation counter
         self.counter += 1
         if self.counter < self.limit:
-            app.logger.info('========')
-            app.logger.info('Maximum Tweet limitation reached')
-            app.logger.info('========')
+            print('========')
+            print('Maximum Tweet limitation reached')
+            print('========')
             return True
         else:
             return False

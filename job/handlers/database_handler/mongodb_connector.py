@@ -3,11 +3,11 @@ from pymongo import MongoClient
 import pymongo
 import os
 
-MONGO_PORT = os.getenv('MONGO_PORT', 27017)
-MONGO_URL = os.getenv('MONGO_URL', 'localhost')
+MONGO_PORT = int(os.getenv('MONGO_PORT', 27017))
+MONGO_HOST = os.getenv('MONGO_HOST', 'localhost')
 
 def mongo_connect():
-    client = MongoClient(MONGO_URL, MONGO_PORT)
+    client = MongoClient(MONGO_HOST, MONGO_PORT)
     db = client.twitterdb
     col = db.tweets
     return col
