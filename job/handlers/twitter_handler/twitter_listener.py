@@ -63,6 +63,7 @@ class TwitterListener(StreamListener):
         if self.counter < self.limit:
             return True
         else:
+            print()
             print('========')
             print('Maximum Tweet limitation reached')
             print('========')

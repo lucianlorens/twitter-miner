@@ -11,5 +11,6 @@ def mongo_connect():
     #client = MongoClient(MONGO_HOST, MONGO_PORT)
     client = MongoClient(MONGO_URL)
     db = client.twitterdb
-    col = db.tweets
-    return col
+    collection = db.tweets
+    db.drop_collection(collection)
+    return collection

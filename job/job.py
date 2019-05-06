@@ -30,7 +30,7 @@ tweet_listener = twitter_listener.TwitterListener(mongo_collection)
 twitter_stream = Stream(auth, listener = tweet_listener)
 
 print('======= Start stream =======')
-
+print('Look how many tweets are saved: ', end='')
 twitter_stream.filter(track = keywords, is_async = True)
 print('=============')
 print('Started waiting time.')

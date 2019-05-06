@@ -17,4 +17,4 @@ def save_from_mongodb_to_tsv(collection):
             delimiter='\t')
         
         dict_writer.writeheader()
-        dict_writer.writerows(json_values)
+        dict_writer.writerows(json_data)
