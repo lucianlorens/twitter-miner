@@ -2,7 +2,7 @@ import datetime
 import sys
 import os
 
-from flask import Flask, request, jsonify, Response, send_from_directory
+from flask import Flask, request, jsonify, Response, send_from_directory, send_file
 #from flasgger import Swagger
 #from flasgger import swag_from
 
@@ -51,4 +51,6 @@ def result():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     runner_ = runner.SingleRunner()
     tsv_file = runner_.download()
-    return send_from_directory("/code/", tsv_file, as_attachment=True)
+    print("/code/"+tsv_file)
+    app.logger.info(tsv_file)
+    return send_file(tsv_file)
