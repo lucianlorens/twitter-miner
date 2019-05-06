@@ -1,3 +1,5 @@
+from tweepy.streaming import StreamListener
+
 import threading
 import sys
 import os
@@ -48,17 +50,17 @@ class TwitterListener(StreamListener):
             "author_screen_name": screen_name
         }
         
-        print('Look how many tweets are saved: ', end='')
-        print('🐦', end='')
+        app.logger.info('Look how many tweets are saved: ', end='')
+        app.logger.info('🐦', end='')
 
         tweetind = col.insert_one(obj).inserted_id
         
         #Tweet limitation counter
         self.counter += 1
         if self.counter < self.limit:
-            print('========')
-            print('Maximum Tweet limitation reached')
-            print('========')
+            app.logger.info('========')
+            app.logger.info('Maximum Tweet limitation reached')
+            app.logger.info('========')
             return True
         else:
             return False

@@ -17,4 +17,4 @@ def save_from_mongodb_to_tsv(self, collection):
         
         dict_writer.writeheader()
         dict_writer.writerows(json_values)
-    print('File saved')
+    app.logger.info('File saved')

@@ -1,4 +1,4 @@
-from tweepy.streaming import StreamListener
+
 from tweepy.auth import OAuthHandler
 from tweepy import Stream
 
