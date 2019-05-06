@@ -5,7 +5,8 @@ import pymongo
 
 def save_from_mongodb_to_tsv(collection):
     json_data = json.loads(dumps( 
-        collection.find().sort(
+        collection.find({},
+        {'_id': False}).sort(
             [("message_created_at",pymongo.ASCENDING),
             ("author_created_at",pymongo.ASCENDING)]) 
     ))
