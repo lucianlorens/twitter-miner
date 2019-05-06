@@ -5,9 +5,6 @@ import sys
 import os
 import time
 import json
-from flask import Flask
-
-app = Flask(__name__)
 
 def count_time( threadName, delay, limit):
     count = 0
@@ -19,11 +16,14 @@ def count_time( threadName, delay, limit):
     #os._exit(0)
 
 
-class TwitterListener(StreamListener, collection):
-    def __init__(self):
+class TwitterListener(StreamListener):
+    def __init__(self, collection):
         super().__init__()
         self.counter = 0
         self.limit = 100
+                
+        self.mongo_collection = collection
+
         print('Listener Created!')
         
         #using multithread on the object construction
@@ -57,7 +57,7 @@ class TwitterListener(StreamListener, collection):
         print('Look how many tweets are saved: ', end='')
         print('🐦', end='')
 
-        tweetind = collection.insert_one(obj).inserted_id
+        tweetind = self.mongo_collection.insert_one(obj).inserted_id
         
         #Tweet limitation counter
         self.counter += 1

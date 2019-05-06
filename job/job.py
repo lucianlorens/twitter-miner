@@ -7,8 +7,7 @@ import handlers.twitter_handler.twitter_listener as twitter_listener
 
 from tweepy import Stream
 
-#from flask import Flask
-#app = Flask(__name__)
+import time
 
 ### OAuth Implementation
 print('Authenticating: ', end='')
@@ -26,16 +25,18 @@ print(mongo_collection)
 keywords = ['bieber']
 
 ### Initializing Stream
-tweet_listener = twitter_listener.TwitterListener()
+tweet_listener = twitter_listener.TwitterListener(mongo_collection)
 
-twitter_stream = Stream(auth, listener = tweet_listener, mongo_collection)
+twitter_stream = Stream(auth, listener = tweet_listener)
 
 print('======= Start stream =======')
 
 twitter_stream.filter(track = keywords, is_async = True)
 
+print('Started waiting time.')
 time.sleep(30)
-print('waiting time finished.')
+print('Waiting time finished.')
+
 twitter_stream.disconnect()
 print('Stream Disconnected.')
 print('======= Close stream =======')
