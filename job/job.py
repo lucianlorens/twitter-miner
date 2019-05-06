@@ -32,7 +32,7 @@ twitter_stream = Stream(auth, listener = tweet_listener)
 print('======= Start stream =======')
 
 twitter_stream.filter(track = keywords, is_async = True)
-
+print('=============')
 print('Started waiting time.')
 time.sleep(30)
 print('Waiting time finished.')
@@ -43,5 +43,5 @@ print('======= Close stream =======')
 
 ### Saving to from MongoDB to .tsv file.
 print('Saving to file')
-save_from_mongodb_to_tsv(mongo_collection)
+file_persistence.save_from_mongodb_to_tsv(mongo_collection)
 print('File saved')
