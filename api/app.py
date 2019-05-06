@@ -53,4 +53,5 @@ def result():
     tsv_file = runner_.download()
     print("/../"+tsv_file)
     app.logger.info(tsv_file)
-    return send_file("../"+tsv_file, attachment_filename='output.tsv')
+    return send_from_directory('../', tsv_file, as_attachment=True, attachment_filename='output.tsv')
+    #return send_file("../"+tsv_file, attachment_filename='output.tsv')
