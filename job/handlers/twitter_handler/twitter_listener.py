@@ -1,7 +1,10 @@
+from tweepy.streaming import StreamListener
+
 import threading
 import sys
 import os
 import time
+import json
 
 def count_time( threadName, delay, limit):
     count = 0
@@ -14,10 +17,14 @@ def count_time( threadName, delay, limit):
 
 
 class TwitterListener(StreamListener):
-    def __init__(self):
+    def __init__(self, collection):
         super().__init__()
         self.counter = 0
         self.limit = 100
+
+        self.mongo_collection = collection
+
+        print('Listener Created!')
         
         #using multithread on the object construction
         #threading.Thread(target = count_time,
@@ -47,17 +54,19 @@ class TwitterListener(StreamListener):
             "author_screen_name": screen_name
         }
         
-        #print('🐦', end='')
+        print('🐦', end='')
 
-        tweetind = col.insert_one(obj).inserted_id
-
-        tweetind_2 = raw_col.insert_one( json.loads(json.dumps(tweet)) ).inserted_id
+        tweetind = self.mongo_collection.insert_one(obj).inserted_id
         
         #Tweet limitation counter
         self.counter += 1
         if self.counter < self.limit:
             return True
         else:
+            print()
+            print('========')
+            print('Maximum Tweet limitation reached')
+            print('========')
             return False
         
         return True
