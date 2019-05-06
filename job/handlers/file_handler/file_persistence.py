@@ -2,7 +2,7 @@ import json
 import csv
 from bson.json_util import dumps
 
-def save_from_mongodb_to_tsv(self, collection):
+def save_from_mongodb_to_tsv(collection):
     json_data = json.loads(dumps( 
         collection.find().sort(
             [("message_created_at",pymongo.ASCENDING),
@@ -17,4 +17,3 @@ def save_from_mongodb_to_tsv(self, collection):
         
         dict_writer.writeheader()
         dict_writer.writerows(json_values)
-    app.logger.info('File saved')

@@ -5,6 +5,11 @@ import handlers.file_handler.file_persistence as file_persistence
 import handlers.twitter_handler.twitter_auth as twitter_auth
 import handlers.twitter_handler.twitter_listener as twitter_listener
 
+from tweepy import Stream
+
+from flask import Flask
+app = Flask(__name__)
+
 ### OAuth Implementation
 app.logger.info('Authenticating: ', end='')
 auth = twitter_auth.twitter_authenticate()
