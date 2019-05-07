@@ -51,9 +51,10 @@ def stop():
     data = runner_.stop_job()
     return jsonify(data)
 
-"""
-@app.route('/download', methods=['POST'])
-@swag_from('swagger/download.yml')
+
+@app.route('/download', methods=['GET', 'POST'])
+#TODO implement download route to swagger.
+#@swag_from('swagger/download.yml')
 def result():
     #
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
@@ -63,13 +64,15 @@ def result():
     app.logger.info(tsv_file)
     return send_from_directory('../', tsv_file, as_attachment=True, attachment_filename='output.tsv')
     #return send_file("../"+tsv_file, attachment_filename='output.tsv')
-
+"""
 """
 
 """
+#TODO Implement result route and swagger
+#show raw data on the browser 
 #implement mode of showing on browser the .tsv 
 @app.route('/result', methods=['GET'])
-@swag_from('swagger/test.yml')
+@swag_from('swagger/result.yml')
 def result():
     #
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
