@@ -1,6 +1,6 @@
 tags:
-  - Job Status
-description: "Check the current twitter mining job status."
+  - Job Stop 
+description: "Stop current running twitter mining job."
 responses:
   200:
     description: "Ok"

@@ -1,6 +1,6 @@
 tags:
-  - Job Status
-description: "Check the current twitter mining job status."
+  - File Result
+description: "Return the raw output.tsv file."
 responses:
   200:
     description: "Ok"

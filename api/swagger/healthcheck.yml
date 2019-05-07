@@ -1,6 +1,6 @@
 tags:
-  - Job Status
-description: "Check the current twitter mining job status."
+  - API Healtcheck
+description: "API healthcheck test route."
 responses:
   200:
     description: "Ok"
