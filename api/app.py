@@ -18,8 +18,8 @@ import runner
 app = Flask(__name__)
 swagger = Swagger(app, config=swagger_configuration)
 
-@app.route('/test', methods=['GET'])
-@swag_from('swagger/test.yml')
+@app.route('/healthcheck', methods=['GET'])
+@swag_from('swagger/healthcheck.yml')
 def test():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     return jsonify({'status': 'ok'})

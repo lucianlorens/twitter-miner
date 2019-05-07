@@ -1,6 +1,6 @@
 tags:
-  - Download
-description: "Application Test"
+  - Download File
+description: "Download the output.tsv file created by the twitter mining job."
 responses:
   200:
     description: ".tsv file sent"
@@ -18,4 +18,3 @@ responses:
         format: date-time
   500:
     description: "Internal Error"
-

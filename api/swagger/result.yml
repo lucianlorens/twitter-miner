@@ -1,6 +1,6 @@
 tags:
-  - Test
-description: "Application Test"
+  - File Result
+description: "Return the raw output.tsv file."
 responses:
   200:
     description: "Ok"

@@ -1,6 +1,6 @@
 tags:
-  - Test
-description: "Application Test"
+  - Job Stop 
+description: "Stop current running twitter mining job."
 responses:
   200:
     description: "Ok"

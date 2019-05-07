@@ -1,6 +1,6 @@
 tags:
-  - Test
-description: "Application Test"
+  - API Healtcheck
+description: "API healthcheck test route."
 responses:
   200:
     description: "Ok"

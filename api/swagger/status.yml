@@ -1,6 +1,6 @@
 tags:
-  - Test
-description: "Application Test"
+  - Job Status
+description: "Check the current twitter mining job status."
 responses:
   200:
     description: "Ok"
