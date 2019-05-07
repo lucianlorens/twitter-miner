@@ -25,6 +25,7 @@ def test():
     return jsonify({'status': 'ok'})
 
 @app.route('/trigger', methods=['POST', 'GET'])
+@swag_from('swagger/trigger.yml')
 def trigger():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     runner_ = runner.SingleRunner()
@@ -33,6 +34,7 @@ def trigger():
 
 
 @app.route('/status', methods=['POST', 'GET'])
+@swag_from('swagger/status.yml')
 def status():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     runner_ = runner.SingleRunner()
@@ -41,6 +43,7 @@ def status():
 
 
 @app.route('/stop', methods=['POST', 'GET'])
+@swag_from('swagger/stop.yml')
 def stop():
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     runner_ = runner.SingleRunner()
@@ -48,6 +51,7 @@ def stop():
     return jsonify(data)
 
 @app.route('/download', methods=['GET'])
+@swag_from('swagger/download.yml')
 def result():
     #
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
@@ -57,9 +61,11 @@ def result():
     app.logger.info(tsv_file)
     return send_from_directory('../', tsv_file, as_attachment=True, attachment_filename='output.tsv')
     #return send_file("../"+tsv_file, attachment_filename='output.tsv')
+
 """
 #implement mode of showing on browser the .tsv 
 @app.route('/result', methods=['GET'])
+@swag_from('swagger/test.yml')
 def result():
     #
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
