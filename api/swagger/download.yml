@@ -1,9 +1,21 @@
 tags:
-  - Test
+  - Download
 description: "Application Test"
 responses:
   200:
-    description: "Ok"
+    description: ".tsv file sent"
+    schema:
+      type: file
+  400:
+  description: "Error on the content file"
+  schema:
+    type: object
+    properties:
+      Error:
+        type: string
+      timestamp:
+        type: string 
+        format: date-time
   500:
     description: "Internal Error"
 
