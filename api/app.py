@@ -55,8 +55,8 @@ def stop():
 @app.route('/download', methods=['GET', 'POST'])
 #TODO implement download route to swagger.
 #@swag_from('swagger/download.yml')
-def result():
-    #
+def download():
+    #TODO Improve this function.
     print("Request on {} route at".format(request.url_rule), datetime.datetime.now())
     runner_ = runner.SingleRunner()
     tsv_file = runner_.download()
