@@ -1,0 +1,17 @@
+definitions:
+  download:
+    type: object
+
+tags:
+  - Download File
+description: "Download the output.tsv file created by the twitter mining job."
+get:
+  produces:
+    - text/csv
+  responses:
+    200:
+      description: ".tsv file sent"
+      schema:
+        type: file
+    500:
+      description: "Internal Server Error"
