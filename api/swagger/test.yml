@@ -1,6 +1,6 @@
 tags:
-  - Status
-description: "Application Status"
+  - Test
+description: "Application Test"
 responses:
   200:
     description: "Ok"
